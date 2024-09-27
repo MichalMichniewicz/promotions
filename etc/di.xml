@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="BigTeddies\Promotions\Api\Data\PromotionsInterface"
+                type="BigTeddies\Promotions\Model\Data\Promotions"/>
+    <preference for="BigTeddies\Promotions\Api\Data\GroupsInterface" type="BigTeddies\Promotions\Model\Data\Groups"/>
+    <preference for="BigTeddies\Promotions\Api\Data\ReturnMessageInterface"
+                type="BigTeddies\Promotions\Model\Data\ReturnMessage"/>
+    <preference for="BigTeddies\Promotions\Api\PromotionsInterface"
+                type="BigTeddies\Promotions\Model\Api\Promotions" />
+    <preference for="BigTeddies\Promotions\Api\GroupsInterface" type="BigTeddies\Promotions\Model\Api\Groups" />
+</config>

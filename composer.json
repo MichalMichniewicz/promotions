@@ -1,0 +1,16 @@
+{
+  "name": "big-teddies/module-promotions",
+  "description": "Module to manage promotions in Magento 2",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "BigTeddies\\Promotions\\": ""
+    }
+  }
+}

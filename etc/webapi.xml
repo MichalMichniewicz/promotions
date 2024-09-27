@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/promotions/list" method="GET">
+        <service class="BigTeddies\Promotions\Api\PromotionsInterface" method="getList"/>
+        <resources>
+            <resource ref="BigTeddies_Promotions::promotions_get_list"/>
+        </resources>
+    </route>
+    <route url="/V1/promotions/add" method="POST">
+        <service class="BigTeddies\Promotions\Api\PromotionsInterface" method="addPromotion"/>
+        <resources>
+            <resource ref="BigTeddies_Promotions::promotions_add"/>
+        </resources>
+    </route>
+    <route url="/V1/promotions/remove/:promotionId" method="DELETE">
+        <service class="BigTeddies\Promotions\Api\PromotionsInterface" method="removePromotion"/>
+        <resources>
+            <resource ref="BigTeddies_Promotions::promotions_remove"/>
+        </resources>
+    </route>
+    <route url="/V1/promotions/groups" method="GET">
+        <service class="BigTeddies\Promotions\Api\GroupsInterface" method="getList"/>
+        <resources>
+            <resource ref="BigTeddies_Promotions::groups_get_list"/>
+        </resources>
+    </route>
+    <route url="/V1/promotions/addgroups" method="POST">
+        <service class="BigTeddies\Promotions\Api\GroupsInterface" method="addGroups"/>
+        <resources>
+            <resource ref="BigTeddies_Promotions::groups_add"/>
+        </resources>
+    </route>
+    <route url="/V1/promotions/removegroup/:groupId" method="DELETE">
+        <service class="BigTeddies\Promotions\Api\GroupsInterface" method="removeGroup"/>
+        <resources>
+            <resource ref="BigTeddies_Promotions::groups_remove"/>
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="big_teddies_promotions" comment="Promotions" resource="default" engine="innodb">
+        <column
+            xsi:type="int"
+            name="entity_id"
+            padding="10"
+            unsigned="true"
+            nullable="false"
+            identity="true"
+            comment="Entity ID"
+        />
+        <column
+            xsi:type="varchar"
+            name="name"
+            nullable="true"
+            comment="Name"
+        />
+        <column
+            xsi:type="timestamp"
+            name="created_at"
+            on_update="false"
+            nullable="true"
+            comment="Created At"
+            default="CURRENT_TIMESTAMP"
+        />
+        <column
+            xsi:type="timestamp"
+            name="updated_at"
+            on_update="true"
+            nullable="true"
+            comment="Updated At"
+            default="CURRENT_TIMESTAMP"
+        />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="big_teddies_promotions_groups" comment="Promotions groups" resource="default" engine="innodb">
+        <column
+            xsi:type="int"
+            name="entity_id"
+            padding="10"
+            unsigned="true"
+            nullable="false"
+            identity="true"
+            comment="Entity ID"
+        />
+        <column
+            xsi:type="varchar"
+            name="name"
+            nullable="true"
+            comment="Name"
+        />
+        <column
+            xsi:type="timestamp"
+            name="created_at"
+            on_update="false"
+            nullable="true"
+            comment="Created At"
+            default="CURRENT_TIMESTAMP"
+        />
+        <column
+            xsi:type="timestamp"
+            name="updated_at"
+            on_update="true"
+            nullable="true"
+            comment="Updated At"
+            default="CURRENT_TIMESTAMP"
+        />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="big_teddies_promotion_group" comment="Promotion group relation" resource="default" engine="innodb">
+        <column
+            xsi:type="int"
+            name="entity_id"
+            padding="10"
+            unsigned="true"
+            nullable="false"
+            identity="true"
+            comment="Entity ID"
+        />
+        <column
+            xsi:type="int"
+            name="promotion_id"
+            padding="10"
+            nullable="false"
+            unsigned="true"
+            comment="Promotion ID"
+        />
+        <column
+            xsi:type="int"
+            name="group_id"
+            padding="10"
+            nullable="false"
+            unsigned="true"
+            comment="Group ID"
+        />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint
+            xsi:type="foreign"
+            referenceId="BIG_TEDDIES_PROMOTION_ENTITY_ID"
+            table="big_teddies_promotion_group"
+            column="promotion_id"
+            referenceTable="big_teddies_promotions"
+            referenceColumn="entity_id"
+            onDelete="CASCADE"
+        />
+        <constraint
+            xsi:type="foreign"
+            referenceId="BIG_TEDDIES_PROMOTION_GROUPS_ENTITY_ID"
+            table="big_teddies_promotion_group"
+            column="group_id"
+            referenceTable="big_teddies_promotions_groups"
+            referenceColumn="entity_id"
+            onDelete="CASCADE"
+        />
+    </table>
+</schema>
